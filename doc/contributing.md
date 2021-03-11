@@ -4,21 +4,21 @@ The HDF Group encourages community members to contribute to the HDF5 project. We
 from small typos and bug fixes to new features. The HDF Group is committed to working with code contributors to make the contribution
 process simple and productive.
 
-This document describes overall guiding principles for HDF5 code contributions and does not pretend to address any specific contribution.
-If in doubt, please do not hesitate to first engage us for guidance by filing a [GitHub issue](https://github.com/HDFGroup/hdf5/issues/new). 
-**Note that contributors must agree to HDF Group software license terms found in the
-[`COPYING`](https://github.com/HDFGroup/hdf5/blob/develop/COPYING) file in the top directory of every branch before
-contributions can be considered for acceptance.**
-
 We assume contributors are familiar with [`git`](https://git-scm.com) and [`GitHub`](https://github.com) [pull requests](https://guides.github.com/activities/hello-world/).
 Except in special circumstances, [large contributions](https://bssw.io/items/pull-request-size-matters)
 (those involving changes to more than 500 lines of code and/or 50 source files) will in all likelihood be required to be
 split across multiple PRs.
 
+This document describes overall guiding principles for HDF5 code contributions and does not pretend to address any specific contribution.
+If in doubt, please engage us for guidance *ahead* of submitting a pull request by filing a [GitHub issue](https://github.com/HDFGroup/hdf5/issues/new). 
+**Note that contributors must agree to HDF Group software license terms found in the
+[`COPYING`](https://github.com/HDFGroup/hdf5/blob/develop/COPYING) file in the top directory of every branch before
+contributions can be considered for acceptance.**
+
 ## Table of Contents
 
 * [Workflow](#workflow)
-* [Acceptance criteria for pull request](#criteria)
+* [Acceptance criteria](#acceptance-criteria)
 * [Check List](#checklist)
 
 # Workflow
@@ -26,32 +26,45 @@ split across multiple PRs.
 The process for contributing code to HDF5 is as follows:
 
 * Open an issue on [HDF5 GitHub](https://github.com/HDFGroup/hdf5/issues).
-
-> This step is ***required*** unless the change is minor (e.g., typo fix). If reporting an issue, please follow a template found in issue_template.md file if possible.  
-
+  * This step is **required** unless the change is *very* minor (e.g., typo fix).
+  * Please follow a template found in [issue_template.md]() file if possible.  
 * Fork the [HDF5](https://github.com/HDFGroup/hdf5) repository.
+  * Use either `git pull upstream <branchname>` or `git fetch upstream <branchname>` followed by `git merge upstream/<branchname>`
+    to keep your fork up to date with changes occuring upstream.
 * Make the desired changes to the HDF5 software.
-	* New features should always go to develop branch first and later should be merged to the appropriate maintenance branches.
-	* Bug fixes should go to all appropriate branches (develop and maintenance). 
-* Build and test your changes. Detailed instructions on how to build and test HDF5 can be found in the `INSTALL*` files in the `release_docs` directory.
-* Push your changes to GitHub.
-* Issues a pull request and address any code formatting and testing issues reported.
+  * New features should always go to develop branch first and later should be merged to the appropriate maintenance branches.
+  * Bug fixes should go to all appropriate branches (develop and maintenance). 
+* Build and test your changes. Detailed instructions on how to build and test HDF5 can be found in the
+* [`INSTALL*`](https://github.com/HDFGroup/hdf5/search?q=filename%3AINSTALL_) files.
+* Push your changes to GitHub being sure to `git add` any new source files you've added.
+* Create a pull request and monitor its CI *status*. Address any code formatting and testing issues CI reports.
+  * Be aware that it may take as long as week before any developers are able to review your PR.
+  * Remember, [smaller PRs](https://bssw.io/items/pull-request-size-matters) are far more likely to be reviewed quickly.
 
-Once a pull request is correctly formatted and passes **ALL** CI tests, it will be reviewed and evaluated by The HDF Group developers and HDF5 community members who can approve pull requests..
+Once a pull request is correctly formatted and passes **ALL** CI tests, it will be reviewed and evaluated by The
+HDF Group developers and HDF5 community members who can approve pull requests..
 The HDF Group developers will work with you to assure that the pull request satisfies acceptance criteria described in the next section. 
 
-# Acceptance criteria for pull request <A NAME="criteria"></A>
+# Acceptance criteria
 
-We appreciate every contribution we receive, but we may not accept them all.  Those that we *do* accept satisfy the following criteria:
+While we appreciate every contribution we receive, we may not be able accept all contributions.
+Those that we *do* accept satisfy the following criteria:
 
-* **The pull request has a clear purpose** - What does the pull request address? How does it benefit the HDF5 community? 
-If the pull request does not have a clear purpose and benefits it will not be accepted. 
+* **The pull request has a clear, well constrained scope and purpose**
+  * What issue or feature does the pull request address?
+  * How does it benefit the HDF5 community?
+  * What are some example workflow(s) that the changes help?
+  * **Note::** For large changes, creating multiple PRs that each tackle a specific part and
+    where each part provides value-added functionality on its own (apart from any other part) is a *best practice*.
 
-* **The pull request is documented** - The HDF5 developers must understand not only *what* a change is doing, but *how* it is doing it.  Documenting the code makes it easier for us to understand your patch and will help to maintaine the code in the future. 
+* **The pull request is documented**
+* HDF5 developers need to be able to understand not only *what* a change is doing,
+  but *how* it is doing it.  Documenting the code makes it easier for us to understand your patch and will help to maintaine the code in the future. 
+  Any that are not immediately obvious from the code itself require in-line comments.
 
-* **The pull request passes HDF5 regression testing** - Any issue fixed or functionality added should be accompanied by the corresponding tests and pass HDF5 regression testing run by The HDF Group. We do not expect you to perform comprehensive testing across a multiple platforms before we accept the pull request. If the pull request does not pass regression testing after the merge, The HDF Group developers will work with you on the fixes. 
+* **The pull request is tested** - Any issue fixed or functionality added should be accompanied by the corresponding tests and pass HDF5 regression testing run by The HDF Group. We do not expect you to perform comprehensive testing across a multiple platforms before we accept the pull request. If the pull request does not pass regression testing after the merge, The HDF Group developers will work with you on the fixes. 
 
-* **The pull request does not compromise the principles behind HDF5** - HDF5 has a 100% commitment to backward compatibility.  
+* **The pull request is consistent with HDF5 design and architecture** - HDF5 has a 100% commitment to backward compatibility.  
 	* Any file ever created with HDF5 must be readable by any future version of HDF5.
    If the purpose of your patch  is to modify HDF5 data model or file format,
  **please** discuss this with us first. File format changes and features required those changes can be introduced only in a new major release. 
@@ -61,7 +74,7 @@ If the pull request does not have a clear purpose and benefits it will not be ac
 * **New features are documented** - Any new features should have proper documentation; talk to us if you have any questions.
 
 
-# Checklist <A NAME="checklist"></A>
+# Checklist
 
 Please make sure that you check the items applicable to your pull request:
 
