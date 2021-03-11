@@ -21,7 +21,7 @@ contributions can be considered for acceptance.**
 * [Acceptance criteria](#acceptance-criteria)
 * [Check List](#checklist)
 
-# Workflow
+## Workflow
 
 The process for contributing code to HDF5 is as follows:
 
@@ -45,26 +45,55 @@ Once a pull request is correctly formatted and passes **ALL** CI tests, it will 
 HDF Group developers and HDF5 community members who can approve pull requests..
 The HDF Group developers will work with you to assure that the pull request satisfies acceptance criteria described in the next section. 
 
-# Acceptance criteria
+## Acceptance criteria
 
 While we appreciate every contribution we receive, we may not be able accept all contributions.
 Those that we *do* accept satisfy the following criteria:
 
-* **The pull request has a clear, well constrained scope and purpose**
-  * What issue or feature does the pull request address?
-  * How does it benefit the HDF5 community?
-  * What are some example workflow(s) that the changes help?
-  * **Note::** For large changes, creating multiple PRs that each tackle a specific part and
-    where each part provides value-added functionality on its own (apart from any other part) is a *best practice*.
+### **The pull request has a clear, well constrained scope and purpose**
+* What issue or feature does the pull request address?
+* How does it benefit the HDF5 community?
+* What are some example workflow(s) that the changes help?
+* **Note::** For large changes, creating multiple PRs that each tackle a specific part and
+  where each part provides value-added functionality on its own (apart from any other part) is a *best practice*.
 
-* **The pull request is documented**
-* HDF5 developers need to be able to understand not only *what* a change is doing,
-  but *how* it is doing it.  Documenting the code makes it easier for us to understand your patch and will help to maintaine the code in the future. 
-  Any that are not immediately obvious from the code itself require in-line comments.
+### **The pull request is documented**
+HDF5 developers need to be able to understand not only *what* a change is doing, but *how* it is doing it.
+Documentation needed as part of a pull request may involve one or more of the following
+* Comments in the GitHub *conversation* for the pull request itself. For example, the initial comment in the
+  PR should address the question raised above regarding scope and purpose of the PR.
+* In-line comments in the source code that explain any portion of code that would not be immediatly obvious from the
+  code itself. For example, in the code block below, lines bracketed with `>>` and `<<` represent **unnecessary**
+  comments because the code itself sufficiently explains what it is doing whereas other comments are *necessary* 
+  because they help to explain non-obviouse behavior.
+  ```
+  /*
+  >> Function to compute total number of datums *currently* in a dataset <<
+    >> dsid: the input dataset id <<
+    returns: >= 0 on success or negative on failure
+  */
+  int get_dataset_size_in_datums(hid_t dsid)
+  {
+      >> /* lookup the dataset handle from the id */ << 
+      get_dataset_handle(dsid);
+      
+      >> /* check of dataset is extendable */ <<
+      is_ext = is_dataset_extendable(dsid);
 
-* **The pull request is tested** - Any issue fixed or functionality added should be accompanied by the corresponding tests and pass HDF5 regression testing run by The HDF Group. We do not expect you to perform comprehensive testing across a multiple platforms before we accept the pull request. If the pull request does not pass regression testing after the merge, The HDF Group developers will work with you on the fixes. 
+      /* If dataset is extendible, we may need to do actual I/O to obtain *current* size */
+      if (is_ext)
+          ds_eol = read_dataset_eol(dsid);
+  }
+  ```
+  * Updating design and/or implementation documents
+  * Updating reference manual
+  * Updating release notes
 
-* **The pull request is consistent with HDF5 design and architecture** - HDF5 has a 100% commitment to backward compatibility.  
+### **The pull request is tested**
+Any issue fixed or functionality added should be accompanied by the corresponding tests and pass HDF5 regression testing run by The HDF Group. Code coverage should not *decrease*. We do not expect you to perform comprehensive testing across a multiple platforms before we accept the pull request. If the pull request does not pass regression testing after the merge, The HDF Group developers will work with you on the fixes. 
+
+### **The pull request is consistent with HDF5 design and architecture**
+HDF5 has a 100% commitment to backward compatibility.  
 	* Any file ever created with HDF5 must be readable by any future version of HDF5.
    If the purpose of your patch  is to modify HDF5 data model or file format,
  **please** discuss this with us first. File format changes and features required those changes can be introduced only in a new major release. 
