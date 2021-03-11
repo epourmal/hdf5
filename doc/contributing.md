@@ -10,9 +10,10 @@ If in doubt, please do not hesitate to first engage us for guidance by filing a 
 [`COPYING`](https://github.com/HDFGroup/hdf5/blob/develop/COPYING) file in the top directory of every branch before
 contributions can be considered for acceptance.**
 
-We assume contributors are familiar with `git` and `GitHub` pull requests.
-[Large contributions](https://bssw.io/items/pull-request-size-matters) (those involving changes to more than 500 lines of code
-and/or 50 source files) will in all likelihood be required to be split across multiple PRs.
+We assume contributors are familiar with [`git`](https://git-scm.com) and [`GitHub`](https://github.com) [pull requests](https://guides.github.com/activities/hello-world/).
+Except in special circumstances, [large contributions](https://bssw.io/items/pull-request-size-matters)
+(those involving changes to more than 500 lines of code and/or 50 source files) will in all likelihood be required to be
+split across multiple PRs.
 
 ## Table of Contents
 
