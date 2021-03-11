@@ -1,15 +1,18 @@
 # How to contribute to HDF5 (Draft)
 
 The HDF Group encourages community members to contribute to the HDF5 project. We accept and are very grateful for any type of contributions 
-from small typos and bug fixes to new features. The HDF Group is committed to work with the code contributors and make contribution process simple and enjoyable.
+from small typos and bug fixes to new features. The HDF Group is committed to working with code contributors to make the contribution
+process simple and productive.
 
-This document describes guiding principles for the HDF5 code contributors and does not pretend to address any possible 
-contribution. If in doubt, please do not hesitate to ask us for guidance. 
-***Note that no contribution may be accepted unless the donor agrees with the HDF Group software license terms
-found in the COPYING file in the top source directory of every branch.***
+This document describes overall guiding principles for HDF5 code contributions and does not pretend to address any specific contribution.
+If in doubt, please do not hesitate to first engage us for guidance by filing a [GitHub issue](https://github.com/HDFGroup/hdf5/issues/new). 
+**Note that contributors must agree to HDF Group software license terms found in the
+[`COPYING`](https://github.com/HDFGroup/hdf5/blob/develop/COPYING) file in the top directory of every branch before
+contributions can be considered for acceptance.**
 
-
-> We will assume that you are familiar with `git` and `GitHub`.  If not, you may go through the GitHub tutorial found at [https://guides.github.com/activities/hello-world/](https://guides.github.com/activities/hello-world/).  This tutorial should only take around 10 minutes.
+We assume contributors are familiar with `git` and `GitHub` pull requests.
+[Large contributions](https://bssw.io/items/pull-request-size-matters) (those involving changes to more than 500 lines of code
+and/or 50 source files) will in all likelihood be required to be split across multiple PRs.
 
 ## Table of Contents
 
@@ -17,7 +20,7 @@ found in the COPYING file in the top source directory of every branch.***
 * [Acceptance criteria for pull request](#criteria)
 * [Check List](#checklist)
 
-# Workflow <A NAME="workflow"></A>
+# Workflow
 
 The process for contributing code to HDF5 is as follows:
 
