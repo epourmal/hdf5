@@ -90,18 +90,25 @@ Documentation needed as part of a pull request may involve one or more of the fo
   * Updating release notes
 
 ### **The pull request is tested**
-Any issue fixed or functionality added should be accompanied by the corresponding tests and pass HDF5 regression testing run by The HDF Group. Code coverage should not *decrease*. We do not expect you to perform comprehensive testing across a multiple platforms before we accept the pull request. If the pull request does not pass regression testing after the merge, The HDF Group developers will work with you on the fixes. 
+Any issue fixed or functionality added should be accompanied by corresponding tests. In addition, existing HDF5 tests must pass.
+Code coverage should not *decrease* in a PR. We do not expect contributors to perform comprehensive testing across a multiple
+platforms before a PR is accepted. However, if the PR does not pass regression testing after the merge, THG developers will need
+to work with you to get the code fixed. If this is not possible, in all likelihood the changes will have to be backed out. 
 
 ### **The pull request is consistent with HDF5 design and architecture**
-HDF5 has a 100% commitment to backward compatibility.  
-	* Any file ever created with HDF5 must be readable by any future version of HDF5.
-   If the purpose of your patch  is to modify HDF5 data model or file format,
- **please** discuss this with us first. File format changes and features required those changes can be introduced only in a new major release. 
-	* HDF5 has a commitment to remaining *machine-independent*; data created on one platform/environment/architecture **must** remain readable by HDF5 on any other. 
-	* For binary compatibility no changes are allowed to public APIs and data structures in the maintenance releases; new APIs can be added.
+* HDF5 has a 100% commitment to backward compatibility of data files.
+  * Any file ever created with HDF5 must be readable by any future version of HDF5. If you expect your contribution to include
+    changes to the HDF5 data model or file format, **please** engage with us *before* starting work by filing a
+    [GitHub issue](https://github.com/HDFGroup/hdf5/issues/new). In addition, file format changes and features needing backward
+    compatibility support can be introduced only in a new *major* release.
+* HDF5 has a committment to backward compatability of its API. This includes Application Binary Interface (ABI) across minor/patch
+  releases as well as the Application Programming Interface.
+* HDF5 has a commitment to ensuring HDF5 data remains *machine-independent*.
+  * Data created on one platform/environment/architecture/VFD/VOL **must** remain readable by HDF5 on any other. 
+  * For binary compatibility no changes are allowed to public APIs and data structures in the maintenance releases; new APIs can be added.
 
-* **New features are documented** - Any new features should have proper documentation; talk to us if you have any questions.
-
+### **New features are documented**
+Any new features should have proper documentation; talk to us if you have any questions.
 
 # Checklist
 
