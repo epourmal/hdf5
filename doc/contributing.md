@@ -91,9 +91,10 @@ Documentation needed as part of a pull request may involve one or more of the fo
 
 ### **The pull request is tested**
 Any issue fixed or functionality added should be accompanied by corresponding tests. In addition, existing HDF5 tests must pass.
-Code coverage should not *decrease* in a PR. We do not expect contributors to perform comprehensive testing across a multiple
+Code coverage should not *decrease* in a PR. We do not expect contributors to perform comprehensive testing across all possible
 platforms before a PR is accepted. However, if the PR does not pass regression testing after the merge, THG developers will need
-to work with you to get the code fixed. If this is not possible, in all likelihood the changes will have to be backed out. 
+to work with contributors to get the code fixed. If contributors fail to be responsive during this process, in all likelihood
+the changes will have to be backed out until such time as the contributor is able to respond to all regression testing issues.
 
 ### **The pull request is consistent with HDF5 design and architecture**
 * HDF5 has a 100% commitment to backward compatibility of data files.
