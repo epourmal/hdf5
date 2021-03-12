@@ -35,7 +35,7 @@ The process for contributing code to HDF5 is as follows:
   * New features should always go to develop branch first and later should be merged to the appropriate maintenance branches.
   * Bug fixes should go to all appropriate branches (develop and maintenance). 
 * Build and test your changes. Detailed instructions on how to build and test HDF5 can be found in the
-* [`INSTALL*`](https://github.com/HDFGroup/hdf5/search?q=filename%3AINSTALL_) files.
+  [`INSTALL*`](https://github.com/HDFGroup/hdf5/search?q=filename%3AINSTALL_) files.
 * Push your changes to GitHub being sure to `git add` any new source files you've added.
 * Create a pull request and monitor its CI *status*. Address any code formatting and testing issues CI reports.
   * Be aware that it may take as long as week before any developers are able to review your PR.
