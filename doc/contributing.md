@@ -41,8 +41,8 @@ The process for contributing code to HDF5 is as follows:
   * Be aware that it may take as long as week before any developers are able to review your PR.
   * Remember, [smaller PRs](https://bssw.io/items/pull-request-size-matters) are far more likely to be reviewed quickly.
 
-Once a pull request is correctly formatted and passes **ALL** CI tests, it will be reviewed and evaluated by The
-HDF Group developers and HDF5 community members who can approve pull requests..
+Only *after* a pull request is correctly formatted and passes **ALL** CI tests, will it be reviewed and evaluated by The
+HDF Group developers and HDF5 community members who can approve pull requests.
 The HDF Group developers will work with you to assure that the pull request satisfies acceptance criteria described in the next section. 
 
 ## Acceptance criteria
